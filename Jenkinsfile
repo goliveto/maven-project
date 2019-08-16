@@ -5,22 +5,17 @@ pipeline {
             steps{
                 sh 'maven clean package'
             }
-            post {
-                success {
-                    echo 'Now Archiving...'
-                    archiveArtificats artificats: '**/target/*.war'
-                }
-            }
+//            post {
+//                success {
+//                    echo 'Now Archiving...'
+//                    archiveArtificats artificats: '**/target/*.war'
+//                }
+//            }
         }
-        stage('deploy to staging') {
-            steps {
-                build job: 'deploy-to-staging'
-            }
-        }
-        stage('Deploy') {
-            steps{
-                echo "Testing..."
-            }
-        }
+//        stage('deploy to staging') {
+//            steps {
+//                build job: 'deploy-to-staging'
+//            }
+//        }
     }
 }
